@@ -23,3 +23,15 @@ function calculateResult() {
         display.innerText = "Error";
     }
 }
+
+// Modifying  calculator.js to use the lexer, parser, and interpreter
+function evaluate() {
+    let input = document.getElementById("display").value;
+    let tokens = lexer(input);
+    let ast = parseToAST(tokens);
+    let result = interpret(ast);
+    document.getElementById("display").value = result;
+}
+
+document.getElementById("equals").addEventListener("click", evaluate);
+
