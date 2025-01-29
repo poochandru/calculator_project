@@ -8,6 +8,8 @@ function lexer(text) {
     let numBuffer = "";
 
     for (let char of text) {
+        console.log(`Processing character: ${char}`);
+        
         if ("0123456789.".includes(char)) {
             numBuffer += char;
         } else if ("+-*/".includes(char)) {
@@ -16,11 +18,16 @@ function lexer(text) {
                 numBuffer = "";
             }
             tokens.push({ type: TOKEN_TYPE_OPERATOR, data: char });
+            console.log(`Added operator token: ${char}`); 
         }
     }
 
-    if (numBuffer) tokens.push({ type: TOKEN_TYPE_LITERAL, data: numBuffer });
+if (numBuffer) {
+        tokens.push({ type: TOKEN_TYPE_LITERAL, data: numBuffer });
+        console.log(`Added final literal token: ${numBuffer}`);  
+    }
 
+    console.log(`Tokens generated: ${JSON.stringify(tokens)}`);  
     return tokens;
 }
 
