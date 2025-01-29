@@ -5,7 +5,6 @@ class LiteralNode {
         this.data = data;
     }
 }
-
 class OperatorNode {
     constructor(data, left, right) {
         this.data = data;
@@ -13,6 +12,7 @@ class OperatorNode {
         this.right = right;
     }
 }
+
 
 function parseToAST(tokens) {
     console.log(`Parsing tokens: ${JSON.stringify(tokens)}`);  
