@@ -22,8 +22,7 @@ function lexer(text) {
         }
     }
 
-if (numBuffer) {
-        tokens.push({ type: TOKEN_TYPE_LITERAL, data: numBuffer });
+if (numBuffer) tokens.push({ type: TOKEN_TYPE_LITERAL, data: numBuffer });
         console.log(`Added final literal token: ${numBuffer}`);  
     }
 
