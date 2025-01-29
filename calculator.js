@@ -30,8 +30,10 @@ function evaluate() {
     let tokens = lexer(input);
     let ast = parseToAST(tokens);
     let result = interpret(ast);
-    document.getElementById("display").value = result;
+     document.getElementById("display").innerText = result;
 }
 
-document.getElementById("equals").addEventListener("click", evaluate);
-
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("equals").addEventListener("click", evaluate);
+});
+   
