@@ -1,41 +1,8 @@
-// CSS
+// Linking CSS and Js 
 
-.calculator {
-  max-width: 300px;
-  display: grid;
-  grid-template-columns: 100%;
-  grid-gap: 8px;
-}
+<link rel="stylesheet" href="calculator.css">
+<script type="text/javascript" src="calculator.js"></script>
 
-#display {
-    background: #f0f0f0;
-    padding: 10px;
-    margin-bottom: 10px;
-    font-size: 24px;
-    text-align: right;
-    border: 1px solid #ccc;
-}
-
-#buttons {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 5px;
-}
-
-button {
-    padding: 10px;
-    font-size: 18px;
-    border: 1px solid #ccc;
-    cursor: pointer;
-    background: #fff;
-    transition: background 0.3s;
-}
-
-button:hover {
-    background: #e0e0e0;
-}
-
-//HTML
 
 <div id="calculator">
     <div id="display">0</div>
@@ -60,28 +27,3 @@ button:hover {
     </div>
 </div>
 
-// Javascript code
-
-const display = document.getElementById("display");
-
-function handleClick(char) {
-    if (display.innerText === "0" && char !== ".") {
-        display.innerText = char;
-    } else if ("+-*/".includes(char) && "+-*/".includes(display.innerText.slice(-1))) {
-        display.innerText = display.innerText.slice(0, -1) + char; 
-    } else {
-        display.innerText += char;
-    }
-}
-
-function clearDisplay() {
-    display.innerText = "0";
-}
-
-function calculateResult() {
-    try {
-        display.innerText = eval(display.innerText); 
-    } catch {
-        display.innerText = "Error";
-    }
-}
