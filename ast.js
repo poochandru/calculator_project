@@ -15,7 +15,12 @@ class OperatorNode {
 }
 
 function parseToAST(tokens) {
-    if (tokens.length === 1) return new LiteralNode(tokens[0].data);
+    console.log(`Parsing tokens: ${JSON.stringify(tokens)}`);  
+
+    if (tokens.length === 1) {
+        console.log(`Created LiteralNode for: ${tokens[0].data}`);
+        return new LiteralNode(tokens[0].data);
+    }
 
     let operatorIndex = -1;
     for (let i = 0; i < tokens.length; i++) {
@@ -28,5 +33,7 @@ function parseToAST(tokens) {
     let left = parseToAST(tokens.slice(0, operatorIndex));
     let right = parseToAST(tokens.slice(operatorIndex + 1));
 
+    console.log(`Created OperatorNode with operator: ${tokens[operatorIndex].data}`);
     return new OperatorNode(tokens[operatorIndex].data, left, right);
 }
+
