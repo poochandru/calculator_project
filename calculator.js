@@ -1,5 +1,3 @@
-// Javascript code
-
 const display = document.getElementById("display");
 
 function handleClick(char) {
